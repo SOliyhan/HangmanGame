@@ -32,15 +32,23 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build, test, and deploy your project.
+          echo 1. All files in this project.
           ls -a
-          echo Is git installed?
+          echo
+          echo 2. Is git installed?
           git --version
           echo
-          echo Is python installed?
+          echo 3. Is python installed?
           python --version
           echo
-          echo Are build tools installed?
+          echo 4. Are build tools installed?
           mvn --version
           gradle --version
           ant -version
+          echo
+          echo 5. Environment path?
+          env
+          echo 6. Who is running this script?
+          whoami
+          echo 7. What is workspace location?
+          echo $RUNNER_WORKSPACE
