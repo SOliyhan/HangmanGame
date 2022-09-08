@@ -3,7 +3,7 @@
 name: Getting Started
 
 # Controls when the workflow will run
-on:
+on: 
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
@@ -23,15 +23,23 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: 1. Disc Space before build
+        run: df
+      
+      - name: 2. Checkout the main branch
       - uses: actions/checkout@v3
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: sh ./ci-cd.sh
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      
+      - name: 3. setup the python
+      - uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          
+      - name: 4. Log build the tool versions
         run: |
-          echo 1. All files in this project.
-          ls -a
+          git --version
+          gradle --version
+      
+      - name: 5. After build disc space
+        run: df
+      
           
