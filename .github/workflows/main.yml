@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 jobs:
   container-test-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     container:
       image: python:3.9
       env:
