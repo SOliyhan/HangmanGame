@@ -7,15 +7,6 @@ on:
 jobs:
   container-test-job:
     runs-on: windows-latest
-    container:
-      image: python:3.9
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
-      volumes:
-        - my_docker_volume:/volume_mount
-      options: --cpus 1
     steps:
       - name: Check for dockerenv file
         run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
