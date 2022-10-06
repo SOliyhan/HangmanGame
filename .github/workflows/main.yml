@@ -9,6 +9,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: docker check
-        run: docker ps
+        run: docker info
       
           
