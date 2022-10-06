@@ -8,8 +8,6 @@ jobs:
   container-test-job:
     runs-on: windows-latest
     steps:
-      - name: Check for dockerenv file
-        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
       - name: docker check
         run: docker ps
       
