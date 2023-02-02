@@ -36,10 +36,8 @@ jobs:
     - name: Install dependencies
       run: |
         where python
-        cd "$GITHUB_WORKSPACE"
+        echo "$GITHUB_WORKSPACE"
         python -m pip install --upgrade pip
-        python -m pip install pipenv
-        pipenv install
         
     - name: Trigger the Workflow
       run: |
