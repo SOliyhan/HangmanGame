@@ -40,5 +40,10 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install pipenv
         pipenv install
-   
+        
+    - name: Trigger the Workflow
+      run: |
+         python workflow_trigger.py ${{ env.pat_token }}  ${{ github.event.inputs.workflow2_github_account}}  ${{ github.event.inputs.workflow2_repo_github}} ${{ github.event.inputs.workflow2_name}} ${{ env.payload_Baseline_Number }} ${{ env.payload_Baseline_Revision }}
+    
+
  
