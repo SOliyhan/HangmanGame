@@ -6,7 +6,7 @@ on:
       workflow2_name:
         description: 'Workflow2 Name for Triggering'
         required: true
-        default: 'Workflow2'
+        default: 'workflow'
       
       workflow2_github_account:
         description: 'GitHub Account Owner'
