@@ -46,7 +46,7 @@ jobs:
       uses: benc-uk/workflow-dispatch@v1
       with:
        workflow: workflow.yml
-       token: ${{}env.pat_token}
+       token: ${{env.pat_token}}
        repo: SOliyhan/RockPaperScissors
        inputs: '{ "message": "blah blah", "something": false }'
         
