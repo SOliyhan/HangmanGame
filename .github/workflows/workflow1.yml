@@ -24,7 +24,6 @@ jobs:
 
     runs-on: windows-latest
     env: 
-      pat_token: ${{ secrets.PAT_TOKEN }}
       #payload_Baseline_Number: "BSL_001"
       #payload_Baseline_Revision: "zsfdgsdbgngffdwdx1dxvv2"
 
@@ -45,9 +44,9 @@ jobs:
     - name: Invoke workflow in another repo with inputs
       uses: benc-uk/workflow-dispatch@v1
       with:
-       workflow: workflow.yml
-       token: ${{env.pat_token}}
        repo: SOliyhan/RockPaperScissors
+       workflow: workflow.yml
+       token: ${{ secrets.PAT_TOK }}
        inputs: '{ "message": "blah blah", "something": false }'
         
     #- name: Trigger the Workflow
