@@ -24,7 +24,7 @@ jobs:
 
     runs-on: windows-latest
     env: 
-      pat_token: ${{ secrets.PAT_TOK }}
+      pat_token: ${{ secrets.PAT_TOKEN }}
       #payload_Baseline_Number: "BSL_001"
       #payload_Baseline_Revision: "zsfdgsdbgngffdwdx1dxvv2"
 
