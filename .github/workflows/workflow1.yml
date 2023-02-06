@@ -1,22 +1,23 @@
 name: workflow_qc
 
 on:
- workflow_dispatch:
-    inputs: 
-      workflow2_name:
-        description: 'Workflow2 Name for Triggering'
-        required: true
-        default: 'workflow'
+ [push, pull_request]
+#  workflow_dispatch:
+#     inputs: 
+#       workflow2_name:
+#         description: 'Workflow2 Name for Triggering'
+#         required: true
+#         default: 'workflow'
       
-      workflow2_github_account:
-        description: 'GitHub Account Owner'
-        required: true
-        default: 'SOliyhan'
+#       workflow2_github_account:
+#         description: 'GitHub Account Owner'
+#         required: true
+#         default: 'SOliyhan'
       
-      workflow2_repo_github:
-        description: 'GitHub Repository Name'
-        required: true
-        default: 'RockPaperScissors'
+#       workflow2_repo_github:
+#         description: 'GitHub Repository Name'
+#         required: true
+#         default: 'RockPaperScissors'
 
 jobs:
   build:
@@ -24,8 +25,8 @@ jobs:
     runs-on: windows-latest
     env: 
       pat_token: ${{ secrets.PAT_TOK }}
-      payload_Baseline_Number: "BSL_001"
-      payload_Baseline_Revision: "zsfdgsdbgngffdwdx1dxvv2"
+      #payload_Baseline_Number: "BSL_001"
+      #payload_Baseline_Revision: "zsfdgsdbgngffdwdx1dxvv2"
 
     steps:
     - uses: actions/checkout@v3
@@ -40,6 +41,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests
         pip install responses
+        
+    - name: Invoke workflow in another repo with inputs
+      uses: benc-uk/workflow-dispatch@v1
+      with:
+       workflow: workflow.yaml
+       repo: SOliyhan/RockPaperScissors
+       inputs: '{ "message": "blah blah", "something": false }'
         
     - name: Trigger the Workflow
       run: |
