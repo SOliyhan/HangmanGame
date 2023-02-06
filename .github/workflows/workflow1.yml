@@ -47,7 +47,7 @@ jobs:
        repo: SOliyhan/RockPaperScissors
        workflow: workflow.yml
        token: ${{ secrets.TEST_T }}
-      # inputs: '{ "message": "blah blah", "something": false }'
+       inputs: '{ "message": "blah blah"}'
         
     #- name: Trigger the Workflow
     #  run: |
