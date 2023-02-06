@@ -46,7 +46,7 @@ jobs:
       with:
        repo: SOliyhan/RockPaperScissors
        workflow: workflow.yml
-       token: ${{ secrets.PAT_TOK }}
+       token: ${{ secrets.PAT_TOKEN }}
        inputs: '{ "message": "blah blah", "something": false }'
         
     #- name: Trigger the Workflow
